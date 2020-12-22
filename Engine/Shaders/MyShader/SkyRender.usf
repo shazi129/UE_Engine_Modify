@@ -1,0 +1,21 @@
+#include "/Engine/private/Common.ush"
+
+//uniform float4x4 UnityVP;
+//uniform float3 TestColor;
+
+void MainVS(in float4 InPosition: ATTRIBUTE0, out float4 OutPosition: SV_POSITION)
+{
+	OutPosition = InPosition;
+//	OutPosition = mul(float4(InPosition, 1.0f), UnityVP);
+}
+
+void MainPS(out float4 OutColor: SV_Target0)
+{
+#if SAMPLE_LEVEL == 0
+	OutColor = float4(1, 0, 0, 1);
+#elif SAMPLE_LEVEL == 1
+	OutColor = float4(0, 1, 0, 1);
+#else
+	OutColor = float4(0, 1, 1, 1);
+#endif
+}

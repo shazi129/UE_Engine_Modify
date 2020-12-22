@@ -1,6 +1,7 @@
 
 #include "MyDeferredShadingRenderer.h"
 #include "MyFirstRenderPass/MyFirstRenderPass.h"
+#include "SkyRender/SkyRender.h"
 
 FMyFDeferredShadingSceneRenderer::FMyFDeferredShadingSceneRenderer(const FSceneViewFamily* InViewFamily, FHitProxyConsumer* HitProxyConsumer)
 	: FDeferredShadingSceneRenderer(InViewFamily, HitProxyConsumer)
@@ -15,7 +16,7 @@ void FMyFDeferredShadingSceneRenderer::CustomRender(
 	FRDGTextureRef LightShaftOcclusionTexture,
 	TRDGUniformBufferRef<FSceneTextureUniformParameters> SceneTexturesWithDepth)
 {
-	MyFirstRenderPass(this, GraphBuilder, SceneColorTexture, SceneDepthTexture, LightShaftOcclusionTexture, SceneTexturesWithDepth);
+	SkyRenderPass(this, GraphBuilder, SceneColorTexture, SceneDepthTexture, LightShaftOcclusionTexture, SceneTexturesWithDepth);
 }
 
 void FMyFDeferredShadingSceneRenderer::Render(FRHICommandListImmediate& RHICmdList)

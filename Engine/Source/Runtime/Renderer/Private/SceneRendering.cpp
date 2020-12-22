@@ -3153,8 +3153,8 @@ FSceneRenderer* FSceneRenderer::CreateSceneRenderer(const FSceneViewFamily* InVi
 
 	if (ShadingPath == EShadingPath::Deferred)
 	{
-		SceneRenderer = new FDeferredShadingSceneRenderer(InViewFamily, HitProxyConsumer);
-		//SceneRenderer = new FMyFDeferredShadingSceneRenderer(InViewFamily, HitProxyConsumer);
+		//SceneRenderer = new FDeferredShadingSceneRenderer(InViewFamily, HitProxyConsumer);
+		SceneRenderer = new FMyFDeferredShadingSceneRenderer(InViewFamily, HitProxyConsumer);
 	}
 	else 
 	{
